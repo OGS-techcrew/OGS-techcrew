@@ -1,27 +1,19 @@
-# Move Server
+# Untitled
 
-{% api-method method="post" host="https://api.cakes.com" path="/v1/customer/user/otpSend" %}
+{% api-method method="post" host="https://api.cakes.com" path="/v1/admin/login" %}
 {% api-method-summary %}
-OTP Send
+Get Cakes
 {% endapi-method-summary %}
 
 {% api-method-description %}
-OTP Send
+This endpoint allows you to get free cakes.
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
 {% api-method-parameter name="mobile" type="string" required=true %}
-customer Mobile Number
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="transType" type="number" required=true %}
-Unique type of the transaction
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="UUID" type="string" required=true %}
-Unique Id
+Follows the E164 format
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -29,31 +21,31 @@ Unique Id
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-Successfully send the OTP
+Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 {% tabs %}
-{% tab title="Plain Text" %}
+{% tab title="Sample Request" %}
 ```
-{
-  "responseCode" : "00",
-  "responseMessage" : "OTP Sent successfully",
-  "transType" : "02",
-  "UUID" : "982072e2-6991-434e-9040-d49e71a09fb2",
-  "userId" : "1"
-}
+{    "name": "Cake's name",    "recipe": "Cake's recipe name",    "cake": "Binary cake"}
+```
+{% endtab %}
+
+{% tab title="Sample Response" %}
+```
+
 ```
 {% endtab %}
 {% endtabs %}
 {% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=404 %}
+{% api-method-response-example httpCode=302 %}
 {% api-method-response-example-description %}
-Could not find a cake matching this query.
+
 {% endapi-method-response-example-description %}
 
 ```
-{    "message": "Ain't no cake like that."}
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
